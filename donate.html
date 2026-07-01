@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khadija Global Foundation · Donate</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8fcff;
+            color: #1e2b37;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+        nav {
+            width: 100%;
+            height: 90px;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 70px;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 60px;
+        }
+
+        .logo h2 {
+            color: #0B5D4A;
+            font-size: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0B5D4A;
+        }
+
+        .donate-btn {
+            background: #0B5D4A;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .donate-btn:hover {
+            background: #087058;
+        }
+
+        /* =========================
+           DONATE PAGE
+        ========================= */
+        .donate-page {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .donate-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .donate-header h1 {
+            font-size: 48px;
+            color: #0B5D4A;
+            margin-bottom: 15px;
+        }
+
+        .donate-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* =========================
+           DONATION OPTIONS (CARDS)
+        ========================= */
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .donation-option {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            border: 3px solid #eaf0ec;
+            transition: 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        .donation-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(11, 93, 74, 0.1);
+        }
+
+        .donation-option.active {
+            border-color: #0B5D4A;
+            background: #f0f7f4;
+            box-shadow: 0 10px 30px rgba(11, 93, 74, 0.12);
+        }
+
+        .donation-option .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .donation-option h3 {
+            font-size: 18px;
+            color: #0B5D4A;
+            margin-bottom: 5px;
+        }
+
+        .donation-option p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .donation-option .check-mark {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background: #0B5D4A;
+            color: white;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .donation-option.active .check-mark {
+            display: flex;
+        }
+
+        /* =========================
+           DETAILS SECTION
+        ========================= */
+        .details-section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eaf0ec;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .details-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .details-section h2 {
+            font-size: 24px;
+            color: #0B5D4A;
+            margin-bottom: 10px;
+        }
+
+        .details-section .sub-text {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 15px 20px;
+            background: #f8fcff;
+            border-radius: 15px;
+            border: 1px solid #eaf0ec;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+
+        .detail-item:hover {
+            background: #f0f7f4;
+            border-color: #0B5D4A;
+        }
+
+        .detail-item .label {
+            font-size: 13px;
+            color: #888;
+            font-weight: 500;
+            min-width: 100px;
+        }
+
+        .detail-item .value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e2b37;
+            flex: 1;
+            word-break: break-all;
+        }
+
+        .detail-item .copy-btn {
+            background: transparent;
+            border: none;
+            color: #0B5D4A;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .detail-item .copy-btn:hover {
+            background: #e0ece6;
+        }
+
+        .qr-code-container {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8fcff;
+            border-radius: 15px;
+            border: 2px dashed #dcebe2;
+        }
+
+        .qr-code-container img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+        }
+
+        .qr-code-container p {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           DONATION AMOUNT BUTTONS
+        ========================= */
+        .donation-amounts {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #eaf0ec;
+        }
+
+        .donation-amounts h3 {
+            font-size: 18px;
+            color: #1e2b37;
+            margin-bottom: 15px;
+        }
+
+        .amount-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .amount-btn {
+            padding: 12px 25px;
+            border: 2px solid #dcebe2;
+            border-radius: 50px;
+            background: white;
+            color: #1e2b37;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+        .amount-btn:hover {
+            border-color: #0B5D4A;
+            background: #f0f7f4;
+        }
+
+        .amount-btn.active {
+            border-color: #0B5D4A;
+            background: #0B5D4A;
+            color: white;
+        }
+
+        .amount-btn.custom {
+            border-style: dashed;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            background: #083D31;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 70px 80px;
+        }
+
+        .footer-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-box img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .footer-box h3 {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .footer-box p {
+            line-height: 1.8;
+            color: #dddddd;
+        }
+
+        .footer-box ul {
+            list-style: none;
+            display: block;
+        }
+
+        .footer-box ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-box ul li a {
+            text-decoration: none;
+            color: #dddddd;
+            transition: 0.3s;
+        }
+
+        .footer-box ul li a:hover {
+            color: #7CE3C1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .footer-bottom p {
+            color: #cccccc;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 992px) {
+            nav {
+                padding: 20px 30px;
+                height: auto;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            nav ul {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .donate-page {
+                padding: 40px 20px;
+            }
+
+            .donate-header h1 {
+                font-size: 32px;
+            }
+
+            .donation-options {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .donation-option {
+                padding: 20px 15px;
+            }
+
+            .donation-option .icon {
+                font-size: 32px;
+            }
+
+            .donation-option h3 {
+                font-size: 15px;
+            }
+
+            .details-section {
+                padding: 25px 20px;
+            }
+
+            .detail-item {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .detail-item .label {
+                min-width: 100%;
+                font-size: 12px;
+            }
+
+            .detail-item .value {
+                font-size: 14px;
+            }
+
+            .amount-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .footer-container {
+                padding: 40px 20px;
+            }
+
+            .qr-code-container img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .donation-options {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .donation-option {
+                padding: 15px 10px;
+            }
+
+            .donation-option .icon {
+                font-size: 28px;
+            }
+
+            .donation-option h3 {
+                font-size: 13px;
+            }
+
+            .donation-option p {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Khadija Global Foundation Logo">
+            </a>
+            <a href="index.html" style="text-decoration: none;">
+                <h2>Khadija Global Foundation</h2>
+            </a>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <a href="donate.html" class="donate-btn">Donate Now</a>
+    </nav>
+
+    <!-- =========================
+         DONATE PAGE
+    ========================== -->
+    <section class="donate-page">
+        <div class="donate-header">
+            <h1>🙏 Choose Your Donation Method</h1>
+            <p>Select your preferred payment method below. All donations are secure and transparent.</p>
+        </div>
+
+        <!-- ===== DONATION OPTIONS (CARDS) ===== -->
+        <div class="donation-options">
+            <!-- Option 1: Bank Transfer -->
+            <div class="donation-option active" onclick="selectOption(this, 'bank')">
+                <span class="check-mark"><i class="fas fa-check"></i></span>
+                <span class="icon">🏦</span>
+                <h3>Bank Transfer</h3>
+                <p>Direct bank transfer</p>
+            </div>
+
+            <!-- Option 2: EasyPaisa -->
+            <div class="donation-option" onclick="selectOption(this, 'easypaisa')">
+                <span class="check-mark"><i class="fas fa-check"></i></span>
+                <span class="icon">📱</span>
+                <h3>EasyPaisa</h3>
+                <p>Mobile wallet</p>
+            </div>
+
+            <!-- Option 3: JazzCash -->
+            <div class="donation-option" onclick="selectOption(this, 'jazzcash')">
+                <span class="check-mark"><i class="fas fa-check"></i></span>
+                <span class="icon">💳</span>
+                <h3>JazzCash</h3>
+                <p>Mobile wallet</p>
+            </div>
+
+            <!-- Option 4: Payoneer -->
+            <div class="donation-option" onclick="selectOption(this, 'payoneer')">
+                <span class="check-mark"><i class="fas fa-check"></i></span>
+                <span class="icon">🌐</span>
+                <h3>Payoneer</h3>
+                <p>International transfer</p>
+            </div>
+
+            <!-- Option 5: PayPal -->
+            <div class="donation-option" onclick="selectOption(this, 'paypal')">
+                <span class="check-mark"><i class="fas fa-check"></i></span>
+                <span class="icon">💸</span>
+                <h3>PayPal</h3>
+                <p>International payment</p>
+            </div>
+        </div>
+
+        <!-- ===== DETAILS SECTION ===== -->
+
+        <!-- Bank Transfer Details -->
+        <div id="bank-details" class="details-section active">
+            <h2>🏦 Bank Transfer Details</h2>
+            <p class="sub-text">Please transfer your donation to the following bank account.</p>
+
+            <div class="detail-item">
+                <span class="label">Bank Name</span>
+                <span class="value">Meezan Bank Limited</span>
+                <button class="copy-btn" onclick="copyText('Meezan Bank Limited')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">Account Title</span>
+                <span class="value">Khadija Global Foundation</span>
+                <button class="copy-btn" onclick="copyText('Khadija Global Foundation')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">Account Number</span>
+                <span class="value">1234-567890-123</span>
+                <button class="copy-btn" onclick="copyText('1234-567890-123')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">IBAN</span>
+                <span class="value">PK99MEZN0012345678901234</span>
+                <button class="copy-btn" onclick="copyText('PK99MEZN0012345678901234')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">Swift Code</span>
+                <span class="value">MEZNPKKA</span>
+                <button class="copy-btn" onclick="copyText('MEZNPKKA')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="qr-code-container">
+                <img src="images/qr-bank.png" alt="Bank QR Code" />
+                <p>Scan QR code to get bank details instantly</p>
+            </div>
+        </div>
+
+        <!-- EasyPaisa Details -->
+        <div id="easypaisa-details" class="details-section">
+            <h2>📱 EasyPaisa Details</h2>
+            <p class="sub-text">Send your donation via EasyPaisa mobile wallet.</p>
+
+            <div class="detail-item">
+                <span class="label">Account Title</span>
+                <span class="value">Khadija Global Foundation</span>
+                <button class="copy-btn" onclick="copyText('Khadija Global Foundation')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">EasyPaisa Number</span>
+                <span class="value">0345 4436451</span>
+                <button class="copy-btn" onclick="copyText('0345 4436451')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">CNIC</span>
+                <span class="value">12345-6789012-3</span>
+                <button class="copy-btn" onclick="copyText('12345-6789012-3')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="qr-code-container">
+                <img src="images/qr-easypaisa.png" alt="EasyPaisa QR Code" />
+                <p>Scan QR code to pay via EasyPaisa</p>
+            </div>
+        </div>
+
+        <!-- JazzCash Details -->
+        <div id="jazzcash-details" class="details-section">
+            <h2>💳 JazzCash Details</h2>
+            <p class="sub-text">Send your donation via JazzCash mobile wallet.</p>
+
+            <div class="detail-item">
+                <span class="label">Account Title</span>
+                <span class="value">Khadija Global Foundation</span>
+                <button class="copy-btn" onclick="copyText('Khadija Global Foundation')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">JazzCash Number</span>
+                <span class="value">0345 4436451</span>
+                <button class="copy-btn" onclick="copyText('0345 4436451')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">CNIC</span>
+                <span class="value">12345-6789012-3</span>
+                <button class="copy-btn" onclick="copyText('12345-6789012-3')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="qr-code-container">
+                <img src="images/qr-jazzcash.png" alt="JazzCash QR Code" />
+                <p>Scan QR code to pay via JazzCash</p>
+            </div>
+        </div>
+
+        <!-- Payoneer Details -->
+        <div id="payoneer-details" class="details-section">
+            <h2>🌐 Payoneer Details</h2>
+            <p class="sub-text">Send your donation via Payoneer international transfer.</p>
+
+            <div class="detail-item">
+                <span class="label">Account Title</span>
+                <span class="value">Khadija Global Foundation</span>
+                <button class="copy-btn" onclick="copyText('Khadija Global Foundation')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">Payoneer Email</span>
+                <span class="value">info@khadijaglobalfoundation.org</span>
+                <button class="copy-btn" onclick="copyText('info@khadijaglobalfoundation.org')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">Payoneer ID</span>
+                <span class="value">123456789</span>
+                <button class="copy-btn" onclick="copyText('123456789')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="qr-code-container">
+                <img src="images/qr-payoneer.png" alt="Payoneer QR Code" />
+                <p>Scan QR code for Payoneer payment</p>
+            </div>
+        </div>
+
+        <!-- PayPal Details -->
+        <div id="paypal-details" class="details-section">
+            <h2>💸 PayPal Details</h2>
+            <p class="sub-text">Send your donation via PayPal international payment.</p>
+
+            <div class="detail-item">
+                <span class="label">Account Title</span>
+                <span class="value">Khadija Global Foundation</span>
+                <button class="copy-btn" onclick="copyText('Khadija Global Foundation')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">PayPal Email</span>
+                <span class="value">info@khadijaglobalfoundation.org</span>
+                <button class="copy-btn" onclick="copyText('info@khadijaglobalfoundation.org')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">PayPal Link</span>
+                <span class="value">paypal.me/KhadijaFoundation</span>
+                <button class="copy-btn" onclick="copyText('paypal.me/KhadijaFoundation')">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="qr-code-container">
+                <img src="images/qr-paypal.png" alt="PayPal QR Code" />
+                <p>Scan QR code to pay via PayPal</p>
+            </div>
+        </div>
+
+        <!-- ===== DONATION AMOUNT SUGGESTIONS ===== -->
+        <div class="donation-amounts">
+            <h3>💝 Suggested Donation Amounts</h3>
+            <div class="amount-buttons">
+                <button class="amount-btn" onclick="selectAmount(this)">$10</button>
+                <button class="amount-btn" onclick="selectAmount(this)">$25</button>
+                <button class="amount-btn active" onclick="selectAmount(this)">$50</button>
+                <button class="amount-btn" onclick="selectAmount(this)">$100</button>
+                <button class="amount-btn" onclick="selectAmount(this)">$250</button>
+                <button class="amount-btn custom" onclick="selectAmount(this)">Custom</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-box">
+                <img src="images/logo.png" alt="Khadija Global Foundation">
+                <h3>Khadija Global Foundation</h3>
+                <p>Together we bring hope, compassion, and support to poor families, orphan children, and animals around the world.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>📧 info@khadijaglobalfoundation.org</p>
+                <p>📞 +92 345 4436451</p>
+                <p>📍 Karachi-Pakistan</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Khadija Global Foundation. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
+    <script>
+        // ===== Select Donation Option =====
+        function selectOption(element, type) {
+            // Remove active class from all options
+            const allOptions = document.querySelectorAll('.donation-option');
+            allOptions.forEach(opt => opt.classList.remove('active'));
+
+            // Add active class to clicked option
+            element.classList.add('active');
+
+            // Hide all details sections
+            const allDetails = document.querySelectorAll('.details-section');
+            allDetails.forEach(detail => detail.classList.remove('active'));
+
+            // Show the selected details section
+            const targetDetails = document.getElementById(type + '-details');
+            if (targetDetails) {
+                targetDetails.classList.add('active');
+            }
+        }
+
+        // ===== Select Amount =====
+        function selectAmount(btn) {
+            const allBtns = document.querySelectorAll('.amount-btn');
+            allBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // ===== Copy to Clipboard =====
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show feedback on all copy buttons
+                const allCopyBtns = document.querySelectorAll('.copy-btn');
+                allCopyBtns.forEach(btn => {
+                    if (btn.parentElement.querySelector('.value')?.innerText === text) {
+                        const originalHTML = btn.innerHTML;
+                        btn.innerHTML = '<i class="fas fa-check" style="color: #0B5D4A;"></i>';
+                        setTimeout(() => {
+                            btn.innerHTML = originalHTML;
+                        }, 2000);
+                    }
+                });
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Copied: ' + text);
+            });
+        }
+    </script>
+
+</body>
+</html>
