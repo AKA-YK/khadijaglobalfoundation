@@ -70,7 +70,7 @@
   /* ---------- header ---------- */
   header{
     position:fixed;top:0;left:0;right:0;z-index:1000;
-    background:rgba(251,246,236,0.0);
+    background:rgba(249, 249, 249, 0.703);
     transition:background .3s ease, box-shadow .3s ease, padding .3s ease;
     padding:22px 0;
   }
@@ -325,9 +325,9 @@
       <a href="contact.html" class="btn btn-outline">Become a Volunteer</a>
     </div>
     <div class="hero-stats">
-      <div><strong>10,000+</strong><span>Families Helped</span></div>
-      <div><strong>5,000+</strong><span>Animals Rescued</span></div>
-      <div><strong>25+</strong><span>Countries Reached</span></div>
+      <div><strong>2,000+</strong><span>Families Helped</span></div>
+      <div><strong>500+</strong><span>Animals Rescued</span></div>
+      <div><strong>10+</strong><span>Countries Reached</span></div>
     </div>
   </div>
 </section>
@@ -389,10 +389,10 @@
       <h2 style="color:#fff;font-size:clamp(1.9rem,3.4vw,2.6rem);">Every contribution creates a meaningful difference</h2>
     </div>
     <div class="impact-grid">
-      <div class="impact-item reveal"><strong class="counter" data-target="10000">0</strong><span>Families Helped</span></div>
-      <div class="impact-item reveal"><strong class="counter" data-target="5000">0</strong><span>Animals Rescued</span></div>
-      <div class="impact-item reveal"><strong class="counter" data-target="300">0</strong><span>Volunteers</span></div>
-      <div class="impact-item reveal"><strong class="counter" data-target="25">0</strong><span>Countries Reached</span></div>
+      <div class="impact-item reveal"><strong class="counter" data-target="2000">0</strong><span>Families Helped</span></div>
+      <div class="impact-item reveal"><strong class="counter" data-target="500">0</strong><span>Animals Rescued</span></div>
+      <div class="impact-item reveal"><strong class="counter" data-target="100">0</strong><span>Volunteers</span></div>
+      <div class="impact-item reveal"><strong class="counter" data-target="10">0</strong><span>Countries Reached</span></div>
     </div>
   </div>
 </section>
@@ -451,41 +451,456 @@
   </div>
 </section>
 
-<!-- ================= TESTIMONIALS ================= -->
+<!-- ================= TESTIMONIALS SLIDER (10 Reviews · Auto-slide) ================= -->
 <section class="testimonials" id="testimonials">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">What People Say</span>
       <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);">Words from our supporters and volunteers</h2>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <div class="quote-mark">&ldquo;</div>
-        <p>Khadija Global Foundation is making a real difference in people's lives. I am proud to volunteer with this amazing organization.</p>
-        <div class="testi-person">
-          <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person1.jpg" alt="Sarah Johnson">
-          <div><strong>Sarah Johnson</strong><span>Volunteer</span></div>
+
+    <!-- ===== SLIDER WRAPPER ===== -->
+    <div class="testi-slider-wrapper reveal">
+      <div class="testi-slider-track" id="testiTrack">
+
+        <!-- Slide 1 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>Khadija Global Foundation is making a real difference in people's lives. I am proud to volunteer with this amazing organization.</p>
+            <div class="testi-person">
+              <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person1.jpg" alt="Sarah Johnson">
+              <div><strong>Sarah Johnson</strong><span>Volunteer</span></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="testi-card reveal">
-        <div class="quote-mark">&ldquo;</div>
-        <p>I have complete trust in this foundation. Every donation reaches those who truly need help.</p>
-        <div class="testi-person">
-          <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person2.jpg" alt="Ahmed Khan">
-          <div><strong>Ahmed Khan</strong><span>Donor</span></div>
+
+        <!-- Slide 2 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>I have complete trust in this foundation. Every donation reaches those who truly need help.</p>
+            <div class="testi-person">
+              <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person2.jpg" alt="Ahmed Khan">
+              <div><strong>Ahmed Khan</strong><span>Donor</span></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="testi-card reveal">
-        <div class="quote-mark">&ldquo;</div>
-        <p>Their dedication to helping families and animals is inspiring. I highly recommend supporting this mission.</p>
-        <div class="testi-person">
-          <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person3.jpg" alt="Emily Davis">
-          <div><strong>Emily Davis</strong><span>Supporter</span></div>
+
+        <!-- Slide 3 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>Their dedication to helping families and animals is inspiring. I highly recommend supporting this mission.</p>
+            <div class="testi-person">
+              <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person3.jpg" alt="Emily Davis">
+              <div><strong>Emily Davis</strong><span>Supporter</span></div>
+            </div>
+          </div>
         </div>
+
+        <!-- Slide 4 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>I've seen the impact of their work firsthand. Khadija Global Foundation is truly changing lives in our community.</p>
+            <div class="testi-person">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Okafor">
+              <div><strong>James Okafor</strong><span>Community Partner</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>As a monthly donor, I appreciate their transparency. Every report shows exactly where the money goes.</p>
+            <div class="testi-person">
+              <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Maria Gonzalez">
+              <div><strong>Maria Gonzalez</strong><span>Monthly Donor</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>The animal rescue program is incredible. They saved my dog and gave him a second chance at life.</p>
+            <div class="testi-person">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Lisa Park">
+              <div><strong>Lisa Park</strong><span>Pet Owner</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>This foundation is a beacon of hope. They provide food, education, and medical care to those who need it most.</p>
+            <div class="testi-person">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Chen">
+              <div><strong>David Chen</strong><span>Volunteer</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>I've been supporting Khadija Global Foundation since 2023. Their commitment to the cause is unwavering.</p>
+            <div class="testi-person">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amara Singh">
+              <div><strong>Amara Singh</strong><span>Regular Donor</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>The education program is changing lives. My daughter now has access to quality education, thanks to this foundation.</p>
+            <div class="testi-person">
+              <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Nadia Khan">
+              <div><strong>Nadia Khan</strong><span>Parent</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="testi-slide">
+          <div class="testi-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p>Khadija Global Foundation's work is a testament to what compassion and dedication can achieve. Highly recommend.</p>
+            <div class="testi-person">
+              <img src="https://randomuser.me/api/portraits/men/91.jpg" alt="Robert Wilson">
+              <div><strong>Robert Wilson</strong><span>Supporter</span></div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <!-- ===== SLIDER CONTROLS ===== -->
+      <button class="slider-btn prev-btn" onclick="prevSlide()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slider-btn next-btn" onclick="nextSlide()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- ===== DOTS ===== -->
+      <div class="slider-dots" id="sliderDots"></div>
     </div>
   </div>
 </section>
+
+<style>
+  /* =========================
+     TESTIMONIALS SLIDER
+  ========================= */
+
+  .testimonials {
+    background: var(--cream);
+    padding: 80px 0;
+    overflow: hidden;
+  }
+
+  .testi-slider-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .testi-slider-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+
+  .testi-slide {
+    flex: 0 0 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .testi-card {
+    background: var(--sand);
+    border-radius: var(--radius);
+    padding: 34px 30px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  }
+
+  .testi-card .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 3.2rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .testi-card p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .testi-person {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: auto;
+  }
+
+  .testi-person img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .testi-person strong {
+    display: block;
+    font-size: 0.98rem;
+    color: var(--teal-dark);
+  }
+
+  .testi-person span {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  /* ----- Slider Buttons ----- */
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider-btn:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 8px 30px rgba(226, 166, 59, 0.3);
+  }
+
+  .prev-btn {
+    left: -10px;
+  }
+
+  .next-btn {
+    right: -10px;
+  }
+
+  /* ----- Dots ----- */
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+
+  .slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d0d0d0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+
+  .slider-dots .dot.active {
+    background: var(--gold);
+    transform: scale(1.25);
+    box-shadow: 0 0 20px rgba(226, 166, 59, 0.25);
+  }
+
+  .slider-dots .dot:hover {
+    background: var(--gold);
+    transform: scale(1.1);
+  }
+
+  /* ----- Responsive ----- */
+  @media (max-width: 992px) {
+    .testi-slider-wrapper {
+      padding: 0 16px;
+    }
+
+    .slider-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 14px;
+    }
+
+    .prev-btn {
+      left: -6px;
+    }
+
+    .next-btn {
+      right: -6px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .testimonial-card {
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .testi-person {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .testi-person img {
+      width: 56px;
+      height: 56px;
+    }
+
+    .testi-card p {
+      font-size: 0.92rem;
+    }
+
+    .slider-btn {
+      width: 34px;
+      height: 34px;
+      font-size: 12px;
+    }
+
+    .prev-btn {
+      left: 4px;
+    }
+
+    .next-btn {
+      right: 4px;
+    }
+
+    .slider-dots .dot {
+      width: 10px;
+      height: 10px;
+    }
+
+    .testimonials {
+      padding: 56px 0;
+    }
+  }
+</style>
+
+<script>
+  // ===== TESTIMONIALS SLIDER =====
+  (function() {
+    const track = document.getElementById('testiTrack');
+    const slides = track.querySelectorAll('.testi-slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    // Create Dots
+    const dotsContainer = document.getElementById('sliderDots');
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-index', i);
+      dot.addEventListener('click', function() {
+        goToSlide(parseInt(this.getAttribute('data-index')));
+      });
+      dotsContainer.appendChild(dot);
+    }
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    function startAutoSlide() {
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(nextSlide, 1700);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+    }
+
+    // Pause on hover
+    const sliderWrapper = document.querySelector('.testi-slider-wrapper');
+    sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
+    sliderWrapper.addEventListener('mouseleave', startAutoSlide);
+
+    // Touch / Swipe support
+    let startX = 0;
+    let endX = 0;
+    sliderWrapper.addEventListener('touchstart', (e) => {
+      startX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    sliderWrapper.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].screenX;
+      const diff = startX - endX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+      }
+    }, { passive: true });
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      else if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Start auto-slide on load
+    startAutoSlide();
+
+    // Expose for manual control (if needed)
+    window.goToSlide = goToSlide;
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+
+  })();
+</script>
 
 <!-- ================= CTA ================= -->
 <section class="cta" id="donate">
@@ -540,9 +955,9 @@
     <div class="footer-bottom">
       <span>© 2026 Khadija Global Foundation. All Rights Reserved.</span>
       <div class="socials">
-        <a href="#" aria-label="Facebook">f</a>
+        <a href="https://www.facebook.com/khadijaglobalfoundation/" aria-label="Facebook">f</a>
         <a href="#" aria-label="Twitter">x</a>
-        <a href="#" aria-label="Instagram">ig</a>
+        <a href="https://www.instagram.com/khadijaglobalfoundation/" aria-label="Instagram">ig</a>
       </div>
     </div>
   </div>
