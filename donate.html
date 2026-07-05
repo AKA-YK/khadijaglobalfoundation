@@ -1574,19 +1574,19 @@
     <section class="impact-strip">
         <div class="impact-strip-inner">
             <div>
-                <h3 class="counter" data-target="10000">0</h3>
+                <h3 class="counter" data-target="2000">0</h3>
                 <span>Families Helped</span>
             </div>
             <div>
-                <h3 class="counter" data-target="5000">0</h3>
+                <h3 class="counter" data-target="500">0</h3>
                 <span>Animals Rescued</span>
             </div>
             <div>
-                <h3 class="counter" data-target="300">0</h3>
+                <h3 class="counter" data-target="100">0</h3>
                 <span>Volunteers</span>
             </div>
             <div>
-                <h3 class="counter" data-target="25">0</h3>
+                <h3 class="counter" data-target="10">0</h3>
                 <span>Countries Reached</span>
             </div>
         </div>
@@ -1634,7 +1634,7 @@
     ========================== -->
     <section class="donate-page" id="donation-options">
         <div class="donate-header reveal">
-            <h1>🙏 Choose Your Donation Method</h1>
+            <h1>Choose Your Donation Method</h1>
             <p>Select your preferred payment method below. All donations are secure and transparent.</p>
         </div>
 
@@ -1643,7 +1643,7 @@
             <!-- Option 1: Bank Transfer -->
             <div class="donation-option active" onclick="selectOption(this, 'bank')">
                 <span class="check-mark"><i class="fas fa-check"></i></span>
-                <span class="icon">🏦</span>
+                <img src="images/bank-logo.png" alt="Bank Transfer" class="payment-logo">
                 <h3>Bank Transfer</h3>
                 <p>Direct bank transfer</p>
             </div>
@@ -1651,31 +1651,24 @@
             <!-- Option 2: EasyPaisa -->
             <div class="donation-option" onclick="selectOption(this, 'easypaisa')">
                 <span class="check-mark"><i class="fas fa-check"></i></span>
-                <span class="icon">📱</span>
+                <img src="images/easypaisa-logo.png" alt="EasyPaisa" class="payment-logo">
                 <h3>EasyPaisa</h3>
                 <p>Mobile wallet</p>
             </div>
 
-            <!-- Option 3: JazzCash -->
-            <div class="donation-option" onclick="selectOption(this, 'jazzcash')">
-                <span class="check-mark"><i class="fas fa-check"></i></span>
-                <span class="icon">💳</span>
-                <h3>JazzCash</h3>
-                <p>Mobile wallet</p>
-            </div>
 
-            <!-- Option 4: Payoneer -->
-            <div class="donation-option" onclick="selectOption(this, 'payoneer')">
-                <span class="check-mark"><i class="fas fa-check"></i></span>
-                <span class="icon">🌐</span>
-                <h3>Payoneer</h3>
-                <p>International transfer</p>
-            </div>
+            <!-- Option 4: Cryptocurrency -->
+<div class="donation-option" onclick="selectOption(this, 'crypto')">
+    <span class="check-mark"><i class="fas fa-check"></i></span>
+    <img src="images/crypto-logo.png" alt="Cryptocurrency" class="payment-logo">
+    <h3>Cryptocurrency</h3>
+    <p>Bitcoin, USDT, ETH &amp; more</p>
+</div>
 
             <!-- Option 5: PayPal -->
             <div class="donation-option" onclick="selectOption(this, 'paypal')">
                 <span class="check-mark"><i class="fas fa-check"></i></span>
-                <span class="icon">💸</span>
+                <img src="images/paypal-logo.png" alt="paypal" class="payment-logo">
                 <h3>PayPal</h3>
                 <p>International payment</p>
             </div>
@@ -1685,7 +1678,7 @@
 
         <!-- Bank Transfer Details -->
         <div id="bank-details" class="details-section active reveal">
-            <h2>🏦 Bank Transfer Details</h2>
+            <h2> Bank Transfer Details</h2>
             <p class="sub-text">Please transfer your donation to the following bank account.</p>
 
             <div class="detail-item">
@@ -1736,7 +1729,7 @@
 
         <!-- EasyPaisa Details -->
         <div id="easypaisa-details" class="details-section">
-            <h2>📱 EasyPaisa Details</h2>
+            <h2>EasyPaisa Details</h2>
             <p class="sub-text">Send your donation via EasyPaisa mobile wallet.</p>
 
             <div class="detail-item">
@@ -1769,79 +1762,53 @@
             </div>
         </div>
 
-        <!-- JazzCash Details -->
-        <div id="jazzcash-details" class="details-section">
-            <h2>💳 JazzCash Details</h2>
-            <p class="sub-text">Send your donation via JazzCash mobile wallet.</p>
 
-            <div class="detail-item">
-                <span class="label">Account Title</span>
-                <span class="value">Khadija Global Foundation</span>
-                <button class="copy-btn" onclick="copyText('Khadija Global Foundation')">
-                    <i class="fas fa-copy"></i>
-                </button>
-            </div>
+        <!-- Crypto Details -->
+<div id="crypto-details" class="details-section">
+    <h2>Cryptocurrency Donation Details</h2>
+    <p class="sub-text">Send your donation via Bitcoin, Ethereum, USDT (BEP-20/ERC-20/TRC-20) or any major crypto.</p>
 
-            <div class="detail-item">
-                <span class="label">JazzCash Number</span>
-                <span class="value">0345 4436451</span>
-                <button class="copy-btn" onclick="copyText('0345 4436451')">
-                    <i class="fas fa-copy"></i>
-                </button>
-            </div>
+    <div class="detail-item">
+        <span class="label">Bitcoin (BTC)</span>
+        <span class="value">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span>
+        <button class="copy-btn" onclick="copyText('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh')">
+            <i class="fas fa-copy"></i>
+        </button>
+    </div>
 
-            <div class="detail-item">
-                <span class="label">CNIC</span>
-                <span class="value">12345-6789012-3</span>
-                <button class="copy-btn" onclick="copyText('12345-6789012-3')">
-                    <i class="fas fa-copy"></i>
-                </button>
-            </div>
+    <div class="detail-item">
+        <span class="label">Ethereum (ETH)</span>
+        <span class="value">0x742d35Cc6634C0532925a3b844Bc454e4438f44e</span>
+        <button class="copy-btn" onclick="copyText('0x742d35Cc6634C0532925a3b844Bc454e4438f44e')">
+            <i class="fas fa-copy"></i>
+        </button>
+    </div>
 
-            <div class="qr-code-container">
-                <img src="images/qr-jazzcash.png" alt="JazzCash QR Code" />
-                <p>Scan QR code to pay via JazzCash</p>
-            </div>
-        </div>
+    <div class="detail-item">
+        <span class="label">USDT (BEP-20)</span>
+        <span class="value">0x742d35Cc6634C0532925a3b844Bc454e4438f44e</span>
+        <button class="copy-btn" onclick="copyText('0x742d35Cc6634C0532925a3b844Bc454e4438f44e')">
+            <i class="fas fa-copy"></i>
+        </button>
+    </div>
 
-        <!-- Payoneer Details -->
-        <div id="payoneer-details" class="details-section">
-            <h2>🌐 Payoneer Details</h2>
-            <p class="sub-text">Send your donation via Payoneer international transfer.</p>
+    <div class="detail-item">
+        <span class="label">Network</span>
+        <span class="value">BTC: Native Segwit | ETH/USDT: ERC-20 / BEP-20</span>
+        <button class="copy-btn" onclick="copyText('BTC: Native Segwit | ETH/USDT: ERC-20 / BEP-20')">
+            <i class="fas fa-copy"></i>
+        </button>
+    </div>
 
-            <div class="detail-item">
-                <span class="label">Account Title</span>
-                <span class="value">Khadija Global Foundation</span>
-                <button class="copy-btn" onclick="copyText('Khadija Global Foundation')">
-                    <i class="fas fa-copy"></i>
-                </button>
-            </div>
-
-            <div class="detail-item">
-                <span class="label">Payoneer Email</span>
-                <span class="value">info@khadijaglobalfoundation.org</span>
-                <button class="copy-btn" onclick="copyText('info@khadijaglobalfoundation.org')">
-                    <i class="fas fa-copy"></i>
-                </button>
-            </div>
-
-            <div class="detail-item">
-                <span class="label">Payoneer ID</span>
-                <span class="value">123456789</span>
-                <button class="copy-btn" onclick="copyText('123456789')">
-                    <i class="fas fa-copy"></i>
-                </button>
-            </div>
-
-            <div class="qr-code-container">
-                <img src="images/qr-payoneer.png" alt="Payoneer QR Code" />
-                <p>Scan QR code for Payoneer payment</p>
-            </div>
-        </div>
+    <div class="qr-code-container">
+        <img src="images/qr-crypto.png" alt="Crypto QR Code" />
+        <p>Scan QR code to donate (BTC/ETH/USDT supported)</p>
+    </div>
+</div>
 
         <!-- PayPal Details -->
         <div id="paypal-details" class="details-section">
-            <h2>💸 PayPal Details</h2>
+            <h2>PayPal Details</h2>
             <p class="sub-text">Send your donation via PayPal international payment.</p>
 
             <div class="detail-item">
@@ -1869,22 +1836,11 @@
             </div>
 
             <div class="qr-code-container">
-                <img src="images/qr-paypal.png" alt="PayPal QR Code" />
+                <img src="images/paypal.png" alt="PayPal QR Code" />
                 <p>Scan QR code to pay via PayPal</p>
             </div>
         </div>
 
-        <!-- ===== DONATION AMOUNT SUGGESTIONS ===== -->
-        <div class="donation-amounts reveal">
-            <h3>💝 Suggested Donation Amounts</h3>
-            <div class="amount-buttons">
-                <button class="amount-btn" onclick="selectAmount(this)">$10</button>
-                <button class="amount-btn" onclick="selectAmount(this)">$25</button>
-                <button class="amount-btn active" onclick="selectAmount(this)">$50</button>
-                <button class="amount-btn" onclick="selectAmount(this)">$100</button>
-                <button class="amount-btn" onclick="selectAmount(this)">$250</button>
-                <button class="amount-btn custom" onclick="selectAmount(this)">Custom</button>
-            </div>
             <p class="secure-note"><i class="fas fa-lock"></i> Your information is safe — we never share your details with third parties.</p>
         </div>
     </section>
