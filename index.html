@@ -250,6 +250,278 @@
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
 
+  /* ===================== NEWSLETTER SUCCESS MESSAGE ===================== */
+  .newsletter-msg-success {
+    color: #7CE3C1 !important;
+    display: block !important;
+    animation: fadeInMsg 0.5s ease;
+    padding: 10px 14px;
+    background: rgba(124, 227, 193, 0.12);
+    border-radius: 8px;
+    border: 1px solid rgba(124, 227, 193, 0.2);
+    margin-top: 10px;
+  }
+
+  .newsletter-msg-error {
+    color: #f08a9a !important;
+    display: block !important;
+    animation: fadeInMsg 0.5s ease;
+    padding: 10px 14px;
+    background: rgba(194, 75, 93, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(194, 75, 93, 0.15);
+    margin-top: 10px;
+  }
+
+  @keyframes fadeInMsg {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===================== REVIEW SECTION ===================== */
+  .review-section {
+    padding: 80px 40px;
+    background: var(--cream);
+  }
+  .review-container { max-width: 800px; margin: 0 auto; }
+  .review-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    color: var(--teal-dark);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .review-section .sub-text {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .auth-box {
+    background: #ffffff;
+    padding: 30px 32px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    margin-bottom: 28px;
+    border: 1px solid var(--line);
+  }
+  .auth-box h3 {
+    font-size: 1.15rem;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .auth-box p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 16px;
+  }
+  .auth-box .auth-input-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .auth-box .auth-input-group input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 18px;
+    border: 2px solid var(--line);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+    background: #fafbfc;
+  }
+  .auth-box .auth-input-group input:focus {
+    border-color: var(--gold);
+  }
+  .auth-box .auth-input-group .btn-small {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 50px;
+    background: var(--gold);
+    color: var(--teal-dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .auth-box .auth-input-group .btn-small:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+  }
+  .auth-status {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 10px;
+  }
+  .auth-status.logged-in {
+    background: rgba(11,93,74,0.08);
+    color: var(--teal);
+  }
+  .auth-status.logged-out {
+    background: rgba(194,75,93,0.08);
+    color: var(--rose);
+  }
+
+  .review-form {
+    background: #ffffff;
+    padding: 30px 32px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    border: 1px solid var(--line);
+    display: none;
+    animation: fadeInForm 0.5s ease;
+  }
+  .review-form.active { display: block; }
+  @keyframes fadeInForm {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .review-form h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    color: var(--teal-dark);
+    margin-bottom: 16px;
+  }
+  .review-form .form-group { margin-bottom: 18px; }
+  .review-form label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .review-form input,
+  .review-form textarea,
+  .review-form select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+    background: #fafbfc;
+  }
+  .review-form input:focus,
+  .review-form textarea:focus,
+  .review-form select:focus {
+    border-color: var(--gold);
+  }
+  .review-form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  .review-form .star-rating {
+    display: flex;
+    gap: 8px;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  .review-form .star-rating .star {
+    color: #d0d0d0;
+    transition: color 0.2s, transform 0.2s;
+    user-select: none;
+  }
+  .review-form .star-rating .star:hover { transform: scale(1.1); }
+  .review-form .star-rating .star.active { color: #f4a460; }
+  #ratingText {
+    font-size: 0.85rem;
+    color: #888;
+    margin-left: 4px;
+  }
+  .review-form .submit-btn {
+    padding: 14px 44px;
+    border: none;
+    border-radius: 50px;
+    background: var(--teal);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 6px;
+  }
+  .review-form .submit-btn:hover {
+    background: var(--teal-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(11,93,74,0.2);
+  }
+  .review-form .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .reviews-list { margin-top: 44px; }
+  .reviews-list h3 {
+    font-size: 1.3rem;
+    color: var(--teal-dark);
+    margin-bottom: 16px;
+    font-family: 'Fraunces', serif;
+  }
+  .review-item {
+    background: #ffffff;
+    padding: 20px 24px;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    border: 1px solid var(--line);
+    margin-bottom: 16px;
+    transition: 0.3s;
+  }
+  .review-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+  }
+  .review-item .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .review-item .reviewer-name {
+    font-weight: 700;
+    color: var(--teal-dark);
+    font-size: 1rem;
+  }
+  .review-item .review-stars {
+    color: #f4a460;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+  .review-item .review-date {
+    font-size: 0.8rem;
+    color: #888;
+  }
+  .review-item .review-role {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .review-item .review-text {
+    color: var(--ink);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .review-section { padding: 50px 20px; }
+    .auth-box { padding: 22px 18px; }
+    .review-form { padding: 22px 18px; }
+    .auth-box .auth-input-group { flex-direction: column; }
+    .auth-box .auth-input-group input { min-width: 100%; }
+    .review-form .star-rating { font-size: 1.6rem; }
+    .review-item .review-header { flex-direction: column; align-items: flex-start; }
+    .review-section h2 { font-size: 1.7rem; }
+  }
+
   /* ---------- responsive ---------- */
   @media(max-width:980px){
     nav.main-nav, .nav-actions .btn{display:none;}
@@ -276,6 +548,145 @@
   .close-btn{position:absolute;top:28px;right:28px;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;}
   .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1100;opacity:0;pointer-events:none;transition:opacity .3s ease;}
   .overlay.show{opacity:1;pointer-events:auto;}
+
+  /* ===================== TESTIMONIALS SLIDER ===================== */
+  .testimonials {
+    background: var(--cream);
+    padding: 80px 0;
+    overflow: hidden;
+  }
+  .testi-slider-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .testi-slider-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+  .testi-slide {
+    flex: 0 0 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .testi-card {
+    background: var(--sand);
+    border-radius: var(--radius);
+    padding: 34px 30px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  }
+  .testi-card .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 3.2rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .testi-card p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+    font-style: italic;
+    flex: 1;
+  }
+  .testi-person {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: auto;
+  }
+  .testi-person img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .testi-person strong {
+    display: block;
+    font-size: 0.98rem;
+    color: var(--teal-dark);
+  }
+  .testi-person span {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slider-btn:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 8px 30px rgba(226,166,59,0.3);
+  }
+  .prev-btn { left: -10px; }
+  .next-btn { right: -10px; }
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d0d0d0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+  .slider-dots .dot.active {
+    background: var(--gold);
+    transform: scale(1.25);
+    box-shadow: 0 0 20px rgba(226,166,59,0.25);
+  }
+  .slider-dots .dot:hover {
+    background: var(--gold);
+    transform: scale(1.1);
+  }
+  @media (max-width: 992px) {
+    .testi-slider-wrapper { padding: 0 16px; }
+    .slider-btn { width: 40px; height: 40px; font-size: 14px; }
+    .prev-btn { left: -6px; }
+    .next-btn { right: -6px; }
+  }
+  @media (max-width: 600px) {
+    .testi-card { padding: 24px 20px; text-align: center; }
+    .testi-person { flex-direction: column; text-align: center; }
+    .testi-person img { width: 56px; height: 56px; }
+    .testi-card p { font-size: 0.92rem; }
+    .slider-btn { width: 34px; height: 34px; font-size: 12px; }
+    .prev-btn { left: 4px; }
+    .next-btn { right: 4px; }
+    .slider-dots .dot { width: 10px; height: 10px; }
+    .testimonials { padding: 56px 0; }
+  }
 </style>
 </head>
 <body>
@@ -338,7 +749,6 @@
   <div class="container about-grid">
     <div class="about-media reveal">
       <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/hero.jpg" alt="About Khadija Global Foundation">
-      
     </div>
     <div class="about-copy reveal">
       <span class="eyebrow">About Us</span>
@@ -451,19 +861,15 @@
   </div>
 </section>
 
-<!-- ================= TESTIMONIALS SLIDER (10 Reviews · Auto-slide) ================= -->
+<!-- ================= TESTIMONIALS SLIDER ================= -->
 <section class="testimonials" id="testimonials">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">What People Say</span>
       <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);">Words from our supporters and volunteers</h2>
     </div>
-
-    <!-- ===== SLIDER WRAPPER ===== -->
     <div class="testi-slider-wrapper reveal">
       <div class="testi-slider-track" id="testiTrack">
-
-        <!-- Slide 1 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -474,8 +880,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 2 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -486,8 +890,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 3 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -498,8 +900,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 4 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -510,8 +910,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 5 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -522,8 +920,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 6 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -534,8 +930,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 7 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -546,8 +940,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 8 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -558,8 +950,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 9 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -570,8 +960,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide 10 -->
         <div class="testi-slide">
           <div class="testi-card">
             <div class="quote-mark">&ldquo;</div>
@@ -582,325 +970,74 @@
             </div>
           </div>
         </div>
-
       </div>
-
-      <!-- ===== SLIDER CONTROLS ===== -->
-      <button class="slider-btn prev-btn" onclick="prevSlide()">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="slider-btn next-btn" onclick="nextSlide()">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-
-      <!-- ===== DOTS ===== -->
+      <button class="slider-btn prev-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-btn next-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
       <div class="slider-dots" id="sliderDots"></div>
     </div>
   </div>
 </section>
 
-<style>
-  /* =========================
-     TESTIMONIALS SLIDER
-  ========================= */
+<!-- ================= REVIEW SECTION (NEW) ================= -->
+<section class="review-section" id="reviewSection">
+  <div class="review-container">
+    <h2>✍️ Share Your Experience</h2>
+    <p class="sub-text">Your feedback helps us improve and reach more people in need.</p>
 
-  .testimonials {
-    background: var(--cream);
-    padding: 80px 0;
-    overflow: hidden;
-  }
+    <!-- Auth Box -->
+    <div class="auth-box" id="authBox">
+      <h3>🔐 Login or Register</h3>
+      <p>Enter your email to login or create a new account.</p>
+      <div class="auth-input-group">
+        <input type="email" id="authEmail" placeholder="your@email.com">
+        <button class="btn-small" onclick="handleAuth()">Continue</button>
+      </div>
+      <div class="auth-status" id="authStatus"></div>
+    </div>
 
-  .testi-slider-wrapper {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-  }
+    <!-- Review Form -->
+    <div class="review-form" id="reviewForm">
+      <h3>📝 Write a Review</h3>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="reviewName" placeholder="e.g. John Doe">
+      </div>
+      <div class="form-group">
+        <label>Your Role</label>
+        <select id="reviewRole">
+          <option value="Donor">Donor</option>
+          <option value="Volunteer">Volunteer</option>
+          <option value="Supporter">Supporter</option>
+          <option value="Community Partner">Community Partner</option>
+          <option value="Beneficiary">Beneficiary</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>⭐ Your Rating</label>
+        <div class="star-rating" id="starRating">
+          <span class="star" data-value="1" onclick="setRating(1)">★</span>
+          <span class="star" data-value="2" onclick="setRating(2)">★</span>
+          <span class="star" data-value="3" onclick="setRating(3)">★</span>
+          <span class="star" data-value="4" onclick="setRating(4)">★</span>
+          <span class="star" data-value="5" onclick="setRating(5)">★</span>
+        </div>
+        <span id="ratingText" style="font-size:0.85rem; color:#888;">Select a rating</span>
+      </div>
+      <div class="form-group">
+        <label>Your Review</label>
+        <textarea id="reviewText" placeholder="Share your experience with Khadija Global Foundation..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitReview()">Submit Review</button>
+    </div>
 
-  .testi-slider-track {
-    display: flex;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform;
-  }
-
-  .testi-slide {
-    flex: 0 0 100%;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-
-  .testi-card {
-    background: var(--sand);
-    border-radius: var(--radius);
-    padding: 34px 30px;
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  }
-
-  .testi-card .quote-mark {
-    font-family: 'Fraunces', serif;
-    font-size: 3.2rem;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .testi-card p {
-    color: var(--ink-soft);
-    font-size: 0.98rem;
-    margin-bottom: 24px;
-    font-style: italic;
-    flex: 1;
-  }
-
-  .testi-person {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: auto;
-  }
-
-  .testi-person img {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .testi-person strong {
-    display: block;
-    font-size: 0.98rem;
-    color: var(--teal-dark);
-  }
-
-  .testi-person span {
-    font-size: 0.82rem;
-    color: var(--ink-soft);
-  }
-
-  /* ----- Slider Buttons ----- */
-  .slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: white;
-    border: none;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    z-index: 10;
-    color: var(--teal-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .slider-btn:hover {
-    background: var(--gold);
-    color: white;
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 8px 30px rgba(226, 166, 59, 0.3);
-  }
-
-  .prev-btn {
-    left: -10px;
-  }
-
-  .next-btn {
-    right: -10px;
-  }
-
-  /* ----- Dots ----- */
-  .slider-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 36px;
-    flex-wrap: wrap;
-  }
-
-  .slider-dots .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #d0d0d0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    padding: 0;
-  }
-
-  .slider-dots .dot.active {
-    background: var(--gold);
-    transform: scale(1.25);
-    box-shadow: 0 0 20px rgba(226, 166, 59, 0.25);
-  }
-
-  .slider-dots .dot:hover {
-    background: var(--gold);
-    transform: scale(1.1);
-  }
-
-  /* ----- Responsive ----- */
-  @media (max-width: 992px) {
-    .testi-slider-wrapper {
-      padding: 0 16px;
-    }
-
-    .slider-btn {
-      width: 40px;
-      height: 40px;
-      font-size: 14px;
-    }
-
-    .prev-btn {
-      left: -6px;
-    }
-
-    .next-btn {
-      right: -6px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .testimonial-card {
-      padding: 24px 20px;
-      text-align: center;
-    }
-
-    .testi-person {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .testi-person img {
-      width: 56px;
-      height: 56px;
-    }
-
-    .testi-card p {
-      font-size: 0.92rem;
-    }
-
-    .slider-btn {
-      width: 34px;
-      height: 34px;
-      font-size: 12px;
-    }
-
-    .prev-btn {
-      left: 4px;
-    }
-
-    .next-btn {
-      right: 4px;
-    }
-
-    .slider-dots .dot {
-      width: 10px;
-      height: 10px;
-    }
-
-    .testimonials {
-      padding: 56px 0;
-    }
-  }
-</style>
-
-<script>
-  // ===== TESTIMONIALS SLIDER =====
-  (function() {
-    const track = document.getElementById('testiTrack');
-    const slides = track.querySelectorAll('.testi-slide');
-    const totalSlides = slides.length;
-    let currentIndex = 0;
-    let autoSlideInterval;
-
-    // Create Dots
-    const dotsContainer = document.getElementById('sliderDots');
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('data-index', i);
-      dot.addEventListener('click', function() {
-        goToSlide(parseInt(this.getAttribute('data-index')));
-      });
-      dotsContainer.appendChild(dot);
-    }
-    const dots = dotsContainer.querySelectorAll('.dot');
-
-    function goToSlide(index) {
-      if (index < 0) index = totalSlides - 1;
-      if (index >= totalSlides) index = 0;
-      currentIndex = index;
-      track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-      dots.forEach((d, i) => {
-        d.classList.toggle('active', i === currentIndex);
-      });
-    }
-
-    function nextSlide() {
-      goToSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-      goToSlide(currentIndex - 1);
-    }
-
-    function startAutoSlide() {
-      if (autoSlideInterval) clearInterval(autoSlideInterval);
-      autoSlideInterval = setInterval(nextSlide, 1700);
-    }
-
-    function stopAutoSlide() {
-      clearInterval(autoSlideInterval);
-    }
-
-    // Pause on hover
-    const sliderWrapper = document.querySelector('.testi-slider-wrapper');
-    sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
-    sliderWrapper.addEventListener('mouseleave', startAutoSlide);
-
-    // Touch / Swipe support
-    let startX = 0;
-    let endX = 0;
-    sliderWrapper.addEventListener('touchstart', (e) => {
-      startX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    sliderWrapper.addEventListener('touchend', (e) => {
-      endX = e.changedTouches[0].screenX;
-      const diff = startX - endX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) nextSlide();
-        else prevSlide();
-      }
-    }, { passive: true });
-
-    // Keyboard support
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') nextSlide();
-      else if (e.key === 'ArrowLeft') prevSlide();
-    });
-
-    // Start auto-slide on load
-    startAutoSlide();
-
-    // Expose for manual control (if needed)
-    window.goToSlide = goToSlide;
-    window.nextSlide = nextSlide;
-    window.prevSlide = prevSlide;
-
-  })();
-</script>
+    <!-- Reviews List -->
+    <div class="reviews-list">
+      <h3>💬 What Our Community Says</h3>
+      <div id="reviewsContainer"></div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= CTA ================= -->
 <section class="cta" id="donate">
@@ -946,10 +1083,11 @@
       <div class="footer-col">
         <h4>Newsletter</h4>
         <p>Get updates on our latest projects and stories of impact.</p>
-        <form class="newsletter" onsubmit="return false;">
-          <input type="email" placeholder="Your email address" required>
+        <form class="newsletter" id="newsletterForm" onsubmit="return handleNewsletter(event)">
+          <input type="email" id="newsletterEmail" placeholder="Your email address" required>
           <button type="submit">Send</button>
         </form>
+        <div id="newsletterMsg" style="margin-top:10px; font-size:0.9rem; display:none;"></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -964,13 +1102,13 @@
 </footer>
 
 <script>
-  // header scroll state
+  // ===== HEADER SCROLL =====
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // mobile nav
+  // ===== MOBILE NAV =====
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
   const overlay = document.getElementById('overlay');
@@ -982,14 +1120,14 @@
   overlay.addEventListener('click', shutNav);
   document.querySelectorAll('.mobile-nav a').forEach(a => a.addEventListener('click', shutNav));
 
-  // scroll reveal
+  // ===== SCROLL REVEAL =====
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
 
-  // counters
+  // ===== COUNTERS =====
   const counters = document.querySelectorAll('.counter');
   const counterIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1009,6 +1147,190 @@
     });
   }, { threshold: 0.4 });
   counters.forEach(c => counterIO.observe(c));
+
+  // ===== NEWSLETTER =====
+  function handleNewsletter(event) {
+    event.preventDefault();
+    var email = document.getElementById('newsletterEmail').value.trim();
+    var msgDiv = document.getElementById('newsletterMsg');
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      msgDiv.className = 'newsletter-msg-error';
+      msgDiv.textContent = '⚠️ Please enter a valid email address.';
+      msgDiv.style.display = 'block';
+      return false;
+    }
+    msgDiv.className = 'newsletter-msg-success';
+    msgDiv.textContent = '✅ Thank you! You\'ve been subscribed successfully!';
+    msgDiv.style.display = 'block';
+    document.getElementById('newsletterEmail').value = '';
+    setTimeout(function() { msgDiv.style.display = 'none'; }, 5000);
+    return false;
+  }
+
+  // ===== TESTIMONIALS SLIDER =====
+  (function() {
+    const track = document.getElementById('testiTrack');
+    const slides = track.querySelectorAll('.testi-slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    const dotsContainer = document.getElementById('sliderDots');
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-index', i);
+      dot.addEventListener('click', function() {
+        goToSlide(parseInt(this.getAttribute('data-index')));
+      });
+      dotsContainer.appendChild(dot);
+    }
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+      dots.forEach((d, i) => { d.classList.toggle('active', i === currentIndex); });
+    }
+
+    function nextSlide() { goToSlide(currentIndex + 1); }
+    function prevSlide() { goToSlide(currentIndex - 1); }
+
+    function startAutoSlide() {
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(nextSlide, 1700);
+    }
+    function stopAutoSlide() { clearInterval(autoSlideInterval); }
+
+    const sliderWrapper = document.querySelector('.testi-slider-wrapper');
+    sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
+    sliderWrapper.addEventListener('mouseleave', startAutoSlide);
+
+    let startX = 0, endX = 0;
+    sliderWrapper.addEventListener('touchstart', (e) => { startX = e.changedTouches[0].screenX; }, { passive: true });
+    sliderWrapper.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].screenX;
+      const diff = startX - endX;
+      if (Math.abs(diff) > 40) { if (diff > 0) nextSlide(); else prevSlide(); }
+    }, { passive: true });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      else if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    startAutoSlide();
+    window.goToSlide = goToSlide;
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+  })();
+
+  // ===== REVIEW SYSTEM =====
+  var selectedRating = 0;
+  var reviews = [];
+
+  function loadReviews() {
+    var saved = localStorage.getItem('kgf_reviews');
+    if (saved) {
+      reviews = JSON.parse(saved);
+    } else {
+      reviews = [
+        { name: 'Sarah Johnson', role: 'Volunteer', rating: 5,
+          text: 'Khadija Global Foundation is making a real difference in people\'s lives. I am proud to volunteer with this amazing organization.',
+          date: '2026-06-28' },
+        { name: 'Ahmed Khan', role: 'Donor', rating: 5,
+          text: 'I have complete trust in this foundation. Every donation reaches those who truly need help.',
+          date: '2026-06-25' },
+        { name: 'Emily Davis', role: 'Supporter', rating: 5,
+          text: 'Their dedication to helping families and animals is inspiring. I highly recommend supporting this mission.',
+          date: '2026-06-22' }
+      ];
+      localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+    }
+    displayReviews();
+  }
+
+  function displayReviews() {
+    var container = document.getElementById('reviewsContainer');
+    if (!container) return;
+    if (reviews.length === 0) {
+      container.innerHTML = '<p style="color:#888; text-align:center;">No reviews yet. Be the first to share your experience!</p>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < reviews.length; i++) {
+      var r = reviews[i];
+      var stars = '';
+      for (var s = 0; s < 5; s++) { stars += (s < r.rating) ? '★' : '☆'; }
+      html += '<div class="review-item">' +
+        '<div class="review-header">' +
+          '<span class="reviewer-name">' + r.name + '</span>' +
+          '<span class="review-stars">' + stars + '</span>' +
+          '<span class="review-date">' + r.date + '</span>' +
+        '</div>' +
+        '<div class="review-role">' + r.role + '</div>' +
+        '<div class="review-text">"' + r.text + '"</div>' +
+      '</div>';
+    }
+    container.innerHTML = html;
+  }
+
+  function setRating(value) {
+    selectedRating = value;
+    var stars = document.querySelectorAll('.star-rating .star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.toggle('active', i < value);
+    }
+    document.getElementById('ratingText').textContent = value + ' star' + (value > 1 ? 's' : '');
+  }
+
+  function handleAuth() {
+    var email = document.getElementById('authEmail').value.trim();
+    var statusDiv = document.getElementById('authStatus');
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      statusDiv.className = 'auth-status logged-out';
+      statusDiv.textContent = '⚠️ Please enter a valid email address.';
+      return;
+    }
+    statusDiv.className = 'auth-status logged-in';
+    statusDiv.textContent = '✅ Logged in as ' + email;
+    document.getElementById('authBox').style.display = 'none';
+    document.getElementById('reviewForm').classList.add('active');
+    var name = email.split('@')[0];
+    document.getElementById('reviewName').value = name.charAt(0).toUpperCase() + name.slice(1);
+  }
+
+  function submitReview() {
+    var name = document.getElementById('reviewName').value.trim();
+    var role = document.getElementById('reviewRole').value;
+    var text = document.getElementById('reviewText').value.trim();
+    var btn = document.querySelector('.submit-btn');
+    if (!name) { alert('Please enter your name.'); return; }
+    if (selectedRating === 0) { alert('Please select a rating.'); return; }
+    if (!text || text.length < 10) { alert('Please write at least 10 characters for your review.'); return; }
+    var today = new Date();
+    var dateStr = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+    reviews.unshift({ name: name, role: role, rating: selectedRating, text: text, date: dateStr });
+    localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+    displayReviews();
+    document.getElementById('reviewText').value = '';
+    selectedRating = 0;
+    document.querySelectorAll('.star-rating .star').forEach(function(s) { s.classList.remove('active'); });
+    document.getElementById('ratingText').textContent = 'Select a rating';
+    btn.disabled = true;
+    btn.textContent = '✅ Submitted!';
+    setTimeout(function() { btn.disabled = false; btn.textContent = 'Submit Review'; }, 2000);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    loadReviews();
+    document.getElementById('authEmail').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleAuth();
+    });
+  });
 </script>
 </body>
 </html>
