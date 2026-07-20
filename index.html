@@ -278,7 +278,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ===================== REVIEW SECTION ===================== */
+  /* ===================== REVIEW SECTION (PUBLIC) ===================== */
   .review-section {
     padding: 80px 40px;
     background: var(--cream);
@@ -298,85 +298,16 @@
     margin-bottom: 40px;
   }
 
-  .auth-box {
-    background: #ffffff;
-    padding: 30px 32px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-    margin-bottom: 28px;
-    border: 1px solid var(--line);
-  }
-  .auth-box h3 {
-    font-size: 1.15rem;
-    color: var(--teal-dark);
-    margin-bottom: 4px;
-    font-weight: 700;
-  }
-  .auth-box p {
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 16px;
-  }
-  .auth-box .auth-input-group {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .auth-box .auth-input-group input {
-    flex: 1;
-    min-width: 200px;
-    padding: 12px 18px;
-    border: 2px solid var(--line);
-    border-radius: 50px;
-    font-size: 0.95rem;
-    outline: none;
-    transition: border-color 0.3s;
-    background: #fafbfc;
-  }
-  .auth-box .auth-input-group input:focus {
-    border-color: var(--gold);
-  }
-  .auth-box .auth-input-group .btn-small {
-    padding: 12px 32px;
-    border: none;
-    border-radius: 50px;
-    background: var(--gold);
-    color: var(--teal-dark);
-    font-weight: 700;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .auth-box .auth-input-group .btn-small:hover {
-    background: var(--gold-dark);
-    transform: translateY(-2px);
-  }
-  .auth-status {
-    margin-top: 12px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 10px;
-  }
-  .auth-status.logged-in {
-    background: rgba(11,93,74,0.08);
-    color: var(--teal);
-  }
-  .auth-status.logged-out {
-    background: rgba(194,75,93,0.08);
-    color: var(--rose);
-  }
-
+  /* ---- Review Form (No Login Required) ---- */
   .review-form {
     background: #ffffff;
     padding: 30px 32px;
     border-radius: 20px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.06);
     border: 1px solid var(--line);
-    display: none;
+    display: block;
     animation: fadeInForm 0.5s ease;
   }
-  .review-form.active { display: block; }
   @keyframes fadeInForm {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -511,12 +442,89 @@
     font-style: italic;
   }
 
+  /* ---- Delete Button ---- */
+  .delete-review-btn {
+    background: #C24B5D;
+    color: #fff;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+  }
+  .delete-review-btn:hover {
+    background: #a13a4a;
+    transform: scale(1.05);
+  }
+
+  /* ---- Admin Panel (Hidden by default) ---- */
+  .admin-toggle-btn {
+    background: transparent;
+    border: 1px dashed var(--line);
+    color: var(--ink-soft);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 16px;
+  }
+  .admin-toggle-btn:hover {
+    border-color: var(--gold);
+    color: var(--teal);
+  }
+
+  .admin-panel {
+    background: #fff;
+    padding: 20px 24px;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    margin-bottom: 30px;
+    display: none;
+  }
+  .admin-panel.show {
+    display: block !important;
+  }
+  .admin-panel h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+  }
+  .admin-panel .admin-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .admin-panel .admin-actions button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.85rem;
+  }
+  .admin-panel .admin-actions .btn-delete-all {
+    background: #C24B5D;
+    color: #fff;
+  }
+  .admin-panel .admin-actions .btn-delete-all:hover {
+    background: #a13a4a;
+  }
+  .admin-panel .admin-actions .btn-toggle-admin {
+    background: var(--gold);
+    color: var(--teal-dark);
+  }
+  .admin-panel .admin-actions .btn-toggle-admin:hover {
+    background: var(--gold-dark);
+  }
+
   @media (max-width: 600px) {
     .review-section { padding: 50px 20px; }
-    .auth-box { padding: 22px 18px; }
     .review-form { padding: 22px 18px; }
-    .auth-box .auth-input-group { flex-direction: column; }
-    .auth-box .auth-input-group input { min-width: 100%; }
     .review-form .star-rating { font-size: 1.6rem; }
     .review-item .review-header { flex-direction: column; align-items: flex-start; }
     .review-section h2 { font-size: 1.7rem; }
@@ -870,106 +878,7 @@
     </div>
     <div class="testi-slider-wrapper reveal">
       <div class="testi-slider-track" id="testiTrack">
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>Khadija Global Foundation is making a real difference in people's lives. I am proud to volunteer with this amazing organization.</p>
-            <div class="testi-person">
-              <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person1.jpg" alt="Sarah Johnson">
-              <div><strong>Sarah Johnson</strong><span>Volunteer</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>I have complete trust in this foundation. Every donation reaches those who truly need help.</p>
-            <div class="testi-person">
-              <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person2.jpg" alt="Ahmed Khan">
-              <div><strong>Ahmed Khan</strong><span>Donor</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>Their dedication to helping families and animals is inspiring. I highly recommend supporting this mission.</p>
-            <div class="testi-person">
-              <img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person3.jpg" alt="Emily Davis">
-              <div><strong>Emily Davis</strong><span>Supporter</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>I've seen the impact of their work firsthand. Khadija Global Foundation is truly changing lives in our community.</p>
-            <div class="testi-person">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Okafor">
-              <div><strong>James Okafor</strong><span>Community Partner</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>As a monthly donor, I appreciate their transparency. Every report shows exactly where the money goes.</p>
-            <div class="testi-person">
-              <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Maria Gonzalez">
-              <div><strong>Maria Gonzalez</strong><span>Monthly Donor</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>The animal rescue program is incredible. They saved my dog and gave him a second chance at life.</p>
-            <div class="testi-person">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Lisa Park">
-              <div><strong>Lisa Park</strong><span>Pet Owner</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>This foundation is a beacon of hope. They provide food, education, and medical care to those who need it most.</p>
-            <div class="testi-person">
-              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Chen">
-              <div><strong>David Chen</strong><span>Volunteer</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>I've been supporting Khadija Global Foundation since 2023. Their commitment to the cause is unwavering.</p>
-            <div class="testi-person">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amara Singh">
-              <div><strong>Amara Singh</strong><span>Regular Donor</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>The education program is changing lives. My daughter now has access to quality education, thanks to this foundation.</p>
-            <div class="testi-person">
-              <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Nadia Khan">
-              <div><strong>Nadia Khan</strong><span>Parent</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-slide">
-          <div class="testi-card">
-            <div class="quote-mark">&ldquo;</div>
-            <p>Khadija Global Foundation's work is a testament to what compassion and dedication can achieve. Highly recommend.</p>
-            <div class="testi-person">
-              <img src="https://randomuser.me/api/portraits/men/91.jpg" alt="Robert Wilson">
-              <div><strong>Robert Wilson</strong><span>Supporter</span></div>
-            </div>
-          </div>
-        </div>
+        <!-- Slides populated by JavaScript from reviews -->
       </div>
       <button class="slider-btn prev-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
       <button class="slider-btn next-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
@@ -978,21 +887,28 @@
   </div>
 </section>
 
-<!-- ================= REVIEW SECTION (NEW) ================= -->
+<!-- ================= REVIEW SECTION (PUBLIC - No Login) ================= -->
 <section class="review-section" id="reviewSection">
   <div class="review-container">
     <h2>✍️ Share Your Experience</h2>
     <p class="sub-text">Your feedback helps us improve and reach more people in need.</p>
 
-    <!-- Auth Box -->
-    <div class="auth-box" id="authBox">
-      <h3>🔐 Login or Register</h3>
-      <p>Enter your email to login or create a new account.</p>
-      <div class="auth-input-group">
-        <input type="email" id="authEmail" placeholder="your@email.com">
-        <button class="btn-small" onclick="handleAuth()">Continue</button>
+    <!-- Admin Access: Double-click on the title -->
+    <div style="text-align:center; margin-bottom:10px; font-size:0.75rem; color:#ccc; user-select:none;" 
+         ondblclick="toggleAdminPanel()">
+      <span style="background:rgba(0,0,0,0.03); padding:2px 12px; border-radius:20px;">
+        🔐 Admin (Double-click here)
+      </span>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+      <h4>🛠️ Admin Controls</h4>
+      <div class="admin-actions">
+        <button class="btn-delete-all" onclick="deleteAllReviews()">🗑️ Delete All Reviews</button>
+        <button class="btn-toggle-admin" onclick="toggleAdminPanel()">Close Panel</button>
       </div>
-      <div class="auth-status" id="authStatus"></div>
+      <p style="font-size:0.8rem; color:#888; margin-top:10px;">⚠️ This will permanently delete all reviews. This action cannot be undone.</p>
     </div>
 
     <!-- Review Form -->
@@ -1167,6 +1083,232 @@
     return false;
   }
 
+  // ============================================================
+  //  REVIEW SYSTEM — Google Sheets Backend (Public)
+  // ============================================================
+
+  // ===== CONFIGURATION =====
+  // YAHAN APNI GOOGLE SCRIPT URL DAALEIN
+  var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_UNIQUE_ID/exec';
+
+  var selectedRating = 0;
+  var reviews = [];
+  var adminVisible = false;
+
+  // ===== LOAD REVIEWS FROM GOOGLE SHEETS =====
+  function loadReviews() {
+    fetch(GOOGLE_SCRIPT_URL)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.log('Error loading reviews:', data.error);
+                loadLocalReviews();
+                return;
+            }
+            reviews = data;
+            displayReviews();
+            updateSliderReviews();
+            localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+        })
+        .catch(error => {
+            console.log('Error loading from Google Sheets, using local:', error);
+            loadLocalReviews();
+        });
+  }
+
+  // ===== FALLBACK: LOCAL STORAGE =====
+  function loadLocalReviews() {
+    var saved = localStorage.getItem('kgf_reviews');
+    if (saved) {
+      reviews = JSON.parse(saved);
+    } else {
+      reviews = [
+        { name: 'Sarah Johnson', role: 'Volunteer', rating: 5,
+          text: 'Khadija Global Foundation is making a real difference in people\'s lives. I am proud to volunteer with this amazing organization.',
+          date: '2026-06-28' },
+        { name: 'Ahmed Khan', role: 'Donor', rating: 5,
+          text: 'I have complete trust in this foundation. Every donation reaches those who truly need help.',
+          date: '2026-06-25' },
+        { name: 'Emily Davis', role: 'Supporter', rating: 5,
+          text: 'Their dedication to helping families and animals is inspiring. I highly recommend supporting this mission.',
+          date: '2026-06-22' }
+      ];
+      localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+    }
+    displayReviews();
+    updateSliderReviews();
+  }
+
+  // ===== DISPLAY REVIEWS =====
+  function displayReviews() {
+    var container = document.getElementById('reviewsContainer');
+    if (!container) return;
+    if (reviews.length === 0) {
+      container.innerHTML = '<p style="color:#888; text-align:center;">No reviews yet. Be the first to share your experience!</p>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < reviews.length; i++) {
+      var r = reviews[i];
+      var stars = '';
+      for (var s = 0; s < 5; s++) { stars += (s < r.rating) ? '★' : '☆'; }
+      html += '<div class="review-item" data-index="' + i + '">' +
+        '<div class="review-header">' +
+          '<span class="reviewer-name">' + r.name + '</span>' +
+          '<span class="review-stars">' + stars + '</span>' +
+          '<span class="review-date">' + r.date + '</span>' +
+          '<button class="delete-review-btn" onclick="deleteReview(' + i + ')" title="Delete this review">🗑️</button>' +
+        '</div>' +
+        '<div class="review-role">' + r.role + '</div>' +
+        '<div class="review-text">"' + r.text + '"</div>' +
+      '</div>';
+    }
+    container.innerHTML = html;
+  }
+
+  // ===== UPDATE TESTIMONIALS SLIDER =====
+  function updateSliderReviews() {
+    var track = document.getElementById('testiTrack');
+    if (!track) return;
+    
+    var sliderReviews = reviews.slice(0, 10);
+    var slidesHtml = '';
+    
+    sliderReviews.forEach(function(r) {
+      var stars = '';
+      for (var s = 0; s < 5; s++) { stars += (s < r.rating) ? '★' : '☆'; }
+      slidesHtml += '<div class="testi-slide">' +
+        '<div class="testi-card">' +
+          '<div class="quote-mark">&ldquo;</div>' +
+          '<p>' + r.text + '</p>' +
+          '<div class="testi-person">' +
+            '<img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person' + (Math.floor(Math.random() * 3) + 1) + '.jpg" alt="' + r.name + '">' +
+            '<div><strong>' + r.name + '</strong><span>' + r.role + '</span></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    
+    track.innerHTML = slidesHtml;
+    
+    // Reinitialize slider dots
+    var dotsContainer = document.getElementById('sliderDots');
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      var newSlides = track.querySelectorAll('.testi-slide');
+      for (var i = 0; i < newSlides.length; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('data-index', i);
+        dot.addEventListener('click', function(idx) {
+          return function() { goToSlide(idx); };
+        }(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+    
+    if (typeof goToSlide === 'function') {
+      goToSlide(0);
+    }
+  }
+
+  // ===== SET RATING =====
+  function setRating(value) {
+    selectedRating = value;
+    var stars = document.querySelectorAll('.star-rating .star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.toggle('active', i < value);
+    }
+    document.getElementById('ratingText').textContent = value + ' star' + (value > 1 ? 's' : '');
+  }
+
+  // ===== SUBMIT REVIEW =====
+  function submitReview() {
+    var name = document.getElementById('reviewName').value.trim();
+    var role = document.getElementById('reviewRole').value;
+    var text = document.getElementById('reviewText').value.trim();
+    var btn = document.querySelector('.submit-btn');
+    
+    if (!name) { alert('Please enter your name.'); return; }
+    if (selectedRating === 0) { alert('Please select a rating.'); return; }
+    if (!text || text.length < 10) { alert('Please write at least 10 characters for your review.'); return; }
+    
+    var today = new Date();
+    var dateStr = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+    
+    var newReview = { name: name, role: role, rating: selectedRating, text: text, date: dateStr };
+    
+    // ---- Save to Google Sheets ----
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newReview)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            reviews.unshift(newReview);
+            localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+            displayReviews();
+            updateSliderReviews();
+            
+            document.getElementById('reviewText').value = '';
+            document.getElementById('reviewName').value = '';
+            selectedRating = 0;
+            document.querySelectorAll('.star-rating .star').forEach(function(s) { s.classList.remove('active'); });
+            document.getElementById('ratingText').textContent = 'Select a rating';
+            
+            btn.disabled = true;
+            btn.textContent = '✅ Submitted!';
+            setTimeout(function() { btn.disabled = false; btn.textContent = 'Submit Review'; }, 2000);
+        } else {
+            alert('⚠️ Error saving review. Please try again.');
+        }
+    })
+    .catch(function(error) {
+        // Fallback: Save to localStorage only
+        reviews.unshift(newReview);
+        localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+        displayReviews();
+        updateSliderReviews();
+        alert('⚠️ Review saved locally. Google Sheets not connected.');
+    });
+  }
+
+  // ===== DELETE REVIEW =====
+  function deleteReview(index) {
+    if (confirm('Are you sure you want to delete this review?')) {
+      reviews.splice(index, 1);
+      localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+      displayReviews();
+      updateSliderReviews();
+      alert('✅ Review deleted!');
+    }
+  }
+
+  // ===== DELETE ALL REVIEWS =====
+  function deleteAllReviews() {
+    if (confirm('⚠️ Are you sure you want to delete ALL reviews? This cannot be undone!')) {
+      reviews = [];
+      localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+      displayReviews();
+      updateSliderReviews();
+      alert('✅ All reviews deleted!');
+    }
+  }
+
+  // ===== ADMIN PANEL TOGGLE =====
+  function toggleAdminPanel() {
+    var panel = document.getElementById('adminPanel');
+    adminVisible = !adminVisible;
+    panel.classList.toggle('show');
+  }
+
+  // ===== INIT =====
+  document.addEventListener('DOMContentLoaded', function() {
+    loadReviews();
+  });
+
   // ===== TESTIMONIALS SLIDER =====
   (function() {
     const track = document.getElementById('testiTrack');
@@ -1227,110 +1369,6 @@
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
   })();
-
-  // ===== REVIEW SYSTEM =====
-  var selectedRating = 0;
-  var reviews = [];
-
-  function loadReviews() {
-    var saved = localStorage.getItem('kgf_reviews');
-    if (saved) {
-      reviews = JSON.parse(saved);
-    } else {
-      reviews = [
-        { name: 'Sarah Johnson', role: 'Volunteer', rating: 5,
-          text: 'Khadija Global Foundation is making a real difference in people\'s lives. I am proud to volunteer with this amazing organization.',
-          date: '2026-06-28' },
-        { name: 'Ahmed Khan', role: 'Donor', rating: 5,
-          text: 'I have complete trust in this foundation. Every donation reaches those who truly need help.',
-          date: '2026-06-25' },
-        { name: 'Emily Davis', role: 'Supporter', rating: 5,
-          text: 'Their dedication to helping families and animals is inspiring. I highly recommend supporting this mission.',
-          date: '2026-06-22' }
-      ];
-      localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
-    }
-    displayReviews();
-  }
-
-  function displayReviews() {
-    var container = document.getElementById('reviewsContainer');
-    if (!container) return;
-    if (reviews.length === 0) {
-      container.innerHTML = '<p style="color:#888; text-align:center;">No reviews yet. Be the first to share your experience!</p>';
-      return;
-    }
-    var html = '';
-    for (var i = 0; i < reviews.length; i++) {
-      var r = reviews[i];
-      var stars = '';
-      for (var s = 0; s < 5; s++) { stars += (s < r.rating) ? '★' : '☆'; }
-      html += '<div class="review-item">' +
-        '<div class="review-header">' +
-          '<span class="reviewer-name">' + r.name + '</span>' +
-          '<span class="review-stars">' + stars + '</span>' +
-          '<span class="review-date">' + r.date + '</span>' +
-        '</div>' +
-        '<div class="review-role">' + r.role + '</div>' +
-        '<div class="review-text">"' + r.text + '"</div>' +
-      '</div>';
-    }
-    container.innerHTML = html;
-  }
-
-  function setRating(value) {
-    selectedRating = value;
-    var stars = document.querySelectorAll('.star-rating .star');
-    for (var i = 0; i < stars.length; i++) {
-      stars[i].classList.toggle('active', i < value);
-    }
-    document.getElementById('ratingText').textContent = value + ' star' + (value > 1 ? 's' : '');
-  }
-
-  function handleAuth() {
-    var email = document.getElementById('authEmail').value.trim();
-    var statusDiv = document.getElementById('authStatus');
-    if (!email || !email.includes('@') || !email.includes('.')) {
-      statusDiv.className = 'auth-status logged-out';
-      statusDiv.textContent = '⚠️ Please enter a valid email address.';
-      return;
-    }
-    statusDiv.className = 'auth-status logged-in';
-    statusDiv.textContent = '✅ Logged in as ' + email;
-    document.getElementById('authBox').style.display = 'none';
-    document.getElementById('reviewForm').classList.add('active');
-    var name = email.split('@')[0];
-    document.getElementById('reviewName').value = name.charAt(0).toUpperCase() + name.slice(1);
-  }
-
-  function submitReview() {
-    var name = document.getElementById('reviewName').value.trim();
-    var role = document.getElementById('reviewRole').value;
-    var text = document.getElementById('reviewText').value.trim();
-    var btn = document.querySelector('.submit-btn');
-    if (!name) { alert('Please enter your name.'); return; }
-    if (selectedRating === 0) { alert('Please select a rating.'); return; }
-    if (!text || text.length < 10) { alert('Please write at least 10 characters for your review.'); return; }
-    var today = new Date();
-    var dateStr = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
-    reviews.unshift({ name: name, role: role, rating: selectedRating, text: text, date: dateStr });
-    localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
-    displayReviews();
-    document.getElementById('reviewText').value = '';
-    selectedRating = 0;
-    document.querySelectorAll('.star-rating .star').forEach(function(s) { s.classList.remove('active'); });
-    document.getElementById('ratingText').textContent = 'Select a rating';
-    btn.disabled = true;
-    btn.textContent = '✅ Submitted!';
-    setTimeout(function() { btn.disabled = false; btn.textContent = 'Submit Review'; }, 2000);
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    loadReviews();
-    document.getElementById('authEmail').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') handleAuth();
-    });
-  });
 </script>
 </body>
 </html>
