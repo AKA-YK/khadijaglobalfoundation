@@ -1369,6 +1369,228 @@
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
   })();
+  // ============================================================
+//  REVIEW SYSTEM — Google Sheets Backend
+// ============================================================
+
+// ===== CONFIGURATION =====
+// YAHAN APNI GOOGLE SCRIPT URL DAALEIN
+var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_UNIQUE_ID/exec';
+
+var selectedRating = 0;
+var reviews = [];
+var adminVisible = false;
+
+// ===== LOAD REVIEWS FROM GOOGLE SHEETS =====
+function loadReviews() {
+    fetch(GOOGLE_SCRIPT_URL)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.log('Error loading reviews:', data.error);
+                loadLocalReviews();
+                return;
+            }
+            reviews = data;
+            displayReviews();
+            updateSliderReviews();
+            localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+        })
+        .catch(error => {
+            console.log('Error loading from Google Sheets, using local:', error);
+            loadLocalReviews();
+        });
+}
+
+// ===== FALLBACK: LOCAL STORAGE =====
+function loadLocalReviews() {
+    var saved = localStorage.getItem('kgf_reviews');
+    if (saved) {
+      reviews = JSON.parse(saved);
+    } else {
+      reviews = [
+        { name: 'Sarah Johnson', role: 'Volunteer', rating: 5,
+          text: 'Khadija Global Foundation is making a real difference in people\'s lives. I am proud to volunteer with this amazing organization.',
+          date: '2026-06-28' },
+        { name: 'Ahmed Khan', role: 'Donor', rating: 5,
+          text: 'I have complete trust in this foundation. Every donation reaches those who truly need help.',
+          date: '2026-06-25' },
+        { name: 'Emily Davis', role: 'Supporter', rating: 5,
+          text: 'Their dedication to helping families and animals is inspiring. I highly recommend supporting this mission.',
+          date: '2026-06-22' }
+      ];
+      localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+    }
+    displayReviews();
+    updateSliderReviews();
+}
+
+// ===== DISPLAY REVIEWS =====
+function displayReviews() {
+    var container = document.getElementById('reviewsContainer');
+    if (!container) return;
+    if (reviews.length === 0) {
+      container.innerHTML = '<p style="color:#888; text-align:center;">No reviews yet. Be the first to share your experience!</p>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < reviews.length; i++) {
+      var r = reviews[i];
+      var stars = '';
+      for (var s = 0; s < 5; s++) { stars += (s < r.rating) ? '★' : '☆'; }
+      html += '<div class="review-item" data-index="' + i + '">' +
+        '<div class="review-header">' +
+          '<span class="reviewer-name">' + r.name + '</span>' +
+          '<span class="review-stars">' + stars + '</span>' +
+          '<span class="review-date">' + r.date + '</span>' +
+          '<button class="delete-review-btn" onclick="deleteReview(' + i + ')" title="Delete this review">🗑️</button>' +
+        '</div>' +
+        '<div class="review-role">' + r.role + '</div>' +
+        '<div class="review-text">"' + r.text + '"</div>' +
+      '</div>';
+    }
+    container.innerHTML = html;
+}
+
+// ===== UPDATE TESTIMONIALS SLIDER =====
+function updateSliderReviews() {
+    var track = document.getElementById('testiTrack');
+    if (!track) return;
+    
+    var sliderReviews = reviews.slice(0, 10);
+    var slidesHtml = '';
+    
+    sliderReviews.forEach(function(r) {
+      var stars = '';
+      for (var s = 0; s < 5; s++) { stars += (s < r.rating) ? '★' : '☆'; }
+      slidesHtml += '<div class="testi-slide">' +
+        '<div class="testi-card">' +
+          '<div class="quote-mark">&ldquo;</div>' +
+          '<p>' + r.text + '</p>' +
+          '<div class="testi-person">' +
+            '<img src="https://aka-yk.github.io/khadijaglobalfoundation/images/person' + (Math.floor(Math.random() * 3) + 1) + '.jpg" alt="' + r.name + '">' +
+            '<div><strong>' + r.name + '</strong><span>' + r.role + '</span></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    
+    track.innerHTML = slidesHtml;
+    
+    var dotsContainer = document.getElementById('sliderDots');
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      var newSlides = track.querySelectorAll('.testi-slide');
+      for (var i = 0; i < newSlides.length; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('data-index', i);
+        dot.addEventListener('click', function(idx) {
+          return function() { goToSlide(idx); };
+        }(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+    
+    if (typeof goToSlide === 'function') {
+      goToSlide(0);
+    }
+}
+
+// ===== SET RATING =====
+function setRating(value) {
+    selectedRating = value;
+    var stars = document.querySelectorAll('.star-rating .star');
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].classList.toggle('active', i < value);
+    }
+    document.getElementById('ratingText').textContent = value + ' star' + (value > 1 ? 's' : '');
+}
+
+// ===== SUBMIT REVIEW =====
+function submitReview() {
+    var name = document.getElementById('reviewName').value.trim();
+    var role = document.getElementById('reviewRole').value;
+    var text = document.getElementById('reviewText').value.trim();
+    var btn = document.querySelector('.submit-btn');
+    
+    if (!name) { alert('Please enter your name.'); return; }
+    if (selectedRating === 0) { alert('Please select a rating.'); return; }
+    if (!text || text.length < 10) { alert('Please write at least 10 characters for your review.'); return; }
+    
+    var today = new Date();
+    var dateStr = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+    
+    var newReview = { name: name, role: role, rating: selectedRating, text: text, date: dateStr };
+    
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newReview)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            reviews.unshift(newReview);
+            localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+            displayReviews();
+            updateSliderReviews();
+            
+            document.getElementById('reviewText').value = '';
+            document.getElementById('reviewName').value = '';
+            selectedRating = 0;
+            document.querySelectorAll('.star-rating .star').forEach(function(s) { s.classList.remove('active'); });
+            document.getElementById('ratingText').textContent = 'Select a rating';
+            
+            btn.disabled = true;
+            btn.textContent = '✅ Submitted!';
+            setTimeout(function() { btn.disabled = false; btn.textContent = 'Submit Review'; }, 2000);
+        } else {
+            alert('⚠️ Error saving review. Please try again.');
+        }
+    })
+    .catch(function(error) {
+        reviews.unshift(newReview);
+        localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+        displayReviews();
+        updateSliderReviews();
+        alert('⚠️ Review saved locally. Google Sheets not connected.');
+    });
+}
+
+// ===== DELETE REVIEW =====
+function deleteReview(index) {
+    if (confirm('Are you sure you want to delete this review?')) {
+      reviews.splice(index, 1);
+      localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+      displayReviews();
+      updateSliderReviews();
+      alert('✅ Review deleted!');
+    }
+}
+
+// ===== DELETE ALL REVIEWS =====
+function deleteAllReviews() {
+    if (confirm('⚠️ Are you sure you want to delete ALL reviews? This cannot be undone!')) {
+      reviews = [];
+      localStorage.setItem('kgf_reviews', JSON.stringify(reviews));
+      displayReviews();
+      updateSliderReviews();
+      alert('✅ All reviews deleted!');
+    }
+}
+
+// ===== ADMIN PANEL TOGGLE =====
+function toggleAdminPanel() {
+    var panel = document.getElementById('adminPanel');
+    adminVisible = !adminVisible;
+    panel.classList.toggle('show');
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', function() {
+    loadReviews();
+});
 </script>
 </body>
 </html>
